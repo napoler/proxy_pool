@@ -153,6 +153,148 @@ class ProxyFetcher(object):
         for proxy in proxies:
             yield ':'.join(proxy)
 
+
+    # 拓展
+
+    @staticmethod
+    def terryfreeProxy06():
+        """ PROXY11 https://proxy11.com
+        不限国家
+        """
+        url = "https://proxy11.com/api/demoweb/proxy.json?speed=2000"
+        try:
+            resp_json = WebRequest().get(url).json
+            for each in resp_json.get("data", []):
+                yield "%s:%s" % (each.get("ip", ""), each.get("port", ""))
+        except Exception as e:
+            print(e)
+    # @staticmethod
+    # def terryfreeProxy09(page_count=1):
+    #     """ 免费代理库 """
+    #     for i in range(1, page_count + 1):
+    #         url = 'http://ip.jiangxianli.com/?country=中国&page={}'.format(i)
+    #         html_tree = WebRequest().get(url).tree
+    #         for index, tr in enumerate(html_tree.xpath("//table//tr")):
+    #             if index == 0:
+    #                 continue
+    #             yield ":".join(tr.xpath("./td/text()")[0:2]).strip()
+    @staticmethod
+    def terryfreeProxy10():
+        """ 89免费代理 """
+        r = WebRequest().get("https://www.89ip.cn/index_1.html", timeout=10)
+        proxies = re.findall(
+            r'<td.*?>[\s\S]*?(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})[\s\S]*?</td>[\s\S]*?<td.*?>[\s\S]*?(\d+)[\s\S]*?</td>',
+            r.text)
+        for proxy in proxies:
+            yield ':'.join(proxy)
+
+    # @staticmethod
+    # def terryfreeProxy1():
+    #     """ socks-proxy """
+    #     r = WebRequest().get("https://www.socks-proxy.net/", timeout=10)
+    #     html_tree = r.tree
+    #     for tr in html_tree.xpath('//*[@id="list"]/div/div[2]/div/table/tr'):
+    #         try:
+    #             ip = ''.join(tr.xpath('./td[1]/text()'))
+    #             port = ''.join(tr.xpath('./td[2]/text()'))
+    #             if port:
+    #                 yield '%s:%s' % (ip, port)
+    #         except Exception as e:
+    #             print(e)
+
+    @staticmethod
+    def terryfreeProxy2():
+        """ free-proxy-list """
+        r = WebRequest().get("https://free-proxy-list.net/", timeout=10)
+        html_tree = r.tree
+        for tr in html_tree.xpath('//*[@id="list"]/div/div[2]/div/table/tbody/tr'):
+            try:
+                ip = ''.join(tr.xpath('./td[1]/font/font/text()'))
+                port = ''.join(tr.xpath('./td[2]/font/font/text()'))
+                if port:
+                    yield '%s:%s' % (ip, port)
+            except Exception as e:
+                print(e)
+    @staticmethod
+    def terryfreeProxy3():
+        """ https://www.sslproxies.org/"""
+        r = WebRequest().get("https://www.sslproxies.org/", timeout=10)
+        html_tree = r.tree
+        for tr in html_tree.xpath('//*[@id="list"]/div/div[2]/div/table/tbody/tr'):
+            try:
+                ip = ''.join(tr.xpath('./td[1]/text()'))
+                port = ''.join(tr.xpath('./td[2]/text()'))
+                if port:
+                    yield '%s:%s' % (ip, port)
+            except Exception as e:
+                print(e)
+
+    @staticmethod
+    def terryfreeProxy4():
+        """ us-proxy.org"""
+        r = WebRequest().get("https://us-proxy.org", timeout=10)
+        html_tree = r.tree
+        for tr in html_tree.xpath('//*[@id="list"]/div/div[2]/div/table/tbody/tr'):
+            try:
+                ip = ''.join(tr.xpath('./td[1]/text()'))
+                port = ''.join(tr.xpath('./td[2]/text()'))
+                if port:
+                    yield '%s:%s' % (ip, port)
+            except Exception as e:
+                print(e)
+
+    @staticmethod
+    def terryfreeProxy5():
+        """ https://free-proxy-list.net/uk-proxy.html"""
+        r = WebRequest().get("https://free-proxy-list.net/uk-proxy.html", timeout=10)
+        html_tree = r.tree
+        for tr in html_tree.xpath('//*[@id="list"]/div/div[2]/div/table/tbody/tr'):
+            try:
+                ip = ''.join(tr.xpath('./td[1]/text()'))
+                port = ''.join(tr.xpath('./td[2]/text()'))
+                if port:
+                    yield '%s:%s' % (ip, port)
+            except Exception as e:
+                print(e)
+
+    @staticmethod
+    def terryfreeProxy6():
+        """ https://free-proxy-list.net/uk-proxy.html"""
+        r = WebRequest().get("https://free-proxy-list.net/anonymous-proxy.html", timeout=10)
+        html_tree = r.tree
+        for tr in html_tree.xpath('//*[@id="list"]/div/div[2]/div/table/tbody/tr'):
+            try:
+                ip = ''.join(tr.xpath('./td[1]/text()'))
+                port = ''.join(tr.xpath('./td[2]/text()'))
+                if port:
+                    yield '%s:%s' % (ip, port)
+            except Exception as e:
+                print(e)
+
+
+    @staticmethod
+    def terryfreeProxy7():
+        """ https://proxy.mimvp.com/freeopen?proxy=out_hp"""
+        r = WebRequest().get("https://proxy.mimvp.com/freeopen?proxy=out_hp", timeout=10)
+        html_tree = r.tree
+        for tr in html_tree.xpath('//*[@id="list"]/div/div[2]/div[1]/div[1]'):
+            try:
+                text = ''.join(tr.xpath('./text()'))
+                for it in text.split("<br>"):
+                    out=it.split("#")
+                    yield out[0]
+            except Exception as e:
+                print(e)
+
+
+
+
+
+
+
+
+
+
     # @staticmethod
     # def wallProxy01():
     #     """

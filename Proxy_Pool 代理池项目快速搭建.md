@@ -132,3 +132,9 @@ ctrl+a+d #返回主终端，proxy_pool终端进入后台运行
 ![](https://s2.loli.net/2022/04/06/KTuQ2yHS7zPj8mW.png)
 
 ![image-20220406110323384](https://s2.loli.net/2022/04/06/js5Og48puJzQ6Tt.png)
+
+
+
+docker-compose 部署
+
+> docker-compose up

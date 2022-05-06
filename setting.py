@@ -54,14 +54,33 @@ PROXY_FETCHER = [
     "freeProxy07",
     "freeProxy08",
     "freeProxy09",
-    "freeProxy10"
+    "freeProxy10",
+    "terryfreeProxy10",
+    "terryfreeProxy06",
+    "terryfreeProxy2",
+    "terryfreeProxy3",
+    "terryfreeProxy4",
+    "terryfreeProxy5",
+    "terryfreeProxy6",
+    "terryfreeProxy7"
 ]
 
 # ############# proxy validator #################
+# # 代理验证目标网站
+# HTTP_URL = "http://httpbin.org"
+#
+# HTTPS_URL = "https://www.qq.com"
+
 # 代理验证目标网站
 HTTP_URL = "http://httpbin.org"
 
-HTTPS_URL = "https://www.qq.com"
+HTTPS_URL = "https://www.google.com"
+
+
+
+
+
+
 
 # 代理验证时超时时间
 VERIFY_TIMEOUT = 10
@@ -73,7 +92,7 @@ MAX_FAIL_COUNT = 0
 # MAX_FAIL_RATE = 0.1
 
 # proxyCheck时代理数量少于POOL_SIZE_MIN触发抓取
-POOL_SIZE_MIN = 20
+POOL_SIZE_MIN = 50
 
 # ############# scheduler config #################
 
