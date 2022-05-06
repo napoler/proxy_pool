@@ -62,7 +62,8 @@ PROXY_FETCHER = [
     "terryfreeProxy4",
     "terryfreeProxy5",
     "terryfreeProxy6",
-    "terryfreeProxy7"
+    "terryfreeProxy7",
+    "terryfreeProxy8"
 ]
 
 # ############# proxy validator #################

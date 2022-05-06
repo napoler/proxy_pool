@@ -157,6 +157,14 @@ def getHtml():
 * 1、首先在[ProxyFetcher](https://github.com/jhao104/proxy_pool/blob/1a3666283806a22ef287fba1a8efab7b94e94bac/fetcher/proxyFetcher.py#L21)类中添加自定义的获取代理的静态方法，
 该方法需要以生成器(yield)形式返回`host:ip`格式的代理，例如:
 
+添加更多参考
+https://github.com/imWildCat/scylla/tree/main/scylla/providers
+
+
+
+
+
+
 ```python
 
 class ProxyFetcher(object):
@@ -173,6 +181,14 @@ class ProxyFetcher(object):
             yield proxy
         # 确保每个proxy都是 host:ip正确的格式返回
 ```
+
+
+
+
+
+
+
+
 
 * 2、添加好方法后，修改[setting.py](https://github.com/jhao104/proxy_pool/blob/1a3666283806a22ef287fba1a8efab7b94e94bac/setting.py#L47)文件中的`PROXY_FETCHER`项：
 

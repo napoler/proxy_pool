@@ -288,6 +288,18 @@ class ProxyFetcher(object):
 
 
 
+    @staticmethod
+    def terryfreeProxy8():
+        """ https://cool-proxy.net/
+        不限国家
+        """
+        url = "https://cool-proxy.net/proxies.json"
+        try:
+            resp_json = WebRequest().get(url).json
+            for each in resp_json:
+                yield "%s:%s" % (each.get("ip", ""), each.get("port", ""))
+        except Exception as e:
+            print(e)
 
 
 
