@@ -101,6 +101,65 @@ docker run --env DB_CONN=redis://:password@ip:port/0 -p 5010:5010 jhao104/proxy_
 ```
 
 
+
+
+
+
+建议这样
+
+```
+---
+version: "2.1"
+services:
+  proxy_pool:
+    image: jhao104/proxy_pool:latest
+    container_name: proxy_pool
+    #networks:
+    #  - proxy_pool
+    depends_on: # 依赖关系
+      - myredis
+    links:
+      - myredis:myredis
+    environment:
+      - DB_CONN=redis://ip:6379/0
+    ports:
+      - 5010:5010
+    restart: unless-stopped
+  myredis:
+    image: redis:latest
+    container_name: myredis
+    #networks:
+     # - proxy_pool
+    ports:
+      - 6378:6379
+    restart: unless-stopped  
+ #networks: 
+ #   proxy_pool:
+```
+
+写宿主机器的ip
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 使用
 
 * Api
