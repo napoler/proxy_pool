@@ -1,0 +1,8 @@
+#  docker build
+
+修改检查网址
+
+setting.py
+
+
+> docker build -t proxy_pool_google .

@@ -75,8 +75,8 @@ PROXY_FETCHER = [
 # 代理验证目标网站
 HTTP_URL = "http://httpbin.org"
 
-# HTTPS_URL = "https://www.google.com"
-HTTPS_URL = "https://www.qq.com"
+HTTPS_URL = "https://www.google.com"
+# HTTPS_URL = "https://www.qq.com"
 
 
 
